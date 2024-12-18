@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="title">M For Movies</h1>
+        
+        <div class="movie-form">
+            <h2>Add a New Movie</h2>
+            <input type="text" id="titleInput" class="input-field" placeholder="Movie Title">
+            <input type="text" id="genreInput" class="input-field" placeholder="Genre">
+            <input type="number" id="ratingInput" class="input-field" placeholder="Rating" step="0.1" min="0" max="10">
+            <input type="number" id="yearInput" class="input-field" placeholder="Release Year" min="1900" max="2100">
+            <button onclick="addMovie(movies, { title: titleInput.value, genre: genreInput.value, rating: parseFloat(ratingInput.value), releaseYear: parseInt(yearInput.value) })" class="button">Add Movie</button>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="listMoviesByGenre(movies, 'Sci-Fi');" class="button">Show Sci-Fi Movies</button>
+            <button onclick="console.log(findHighestRatedMovie(movies));" class="button">Find Highest Rated Movie</button>
+            <button onclick="renderMovies()" class="button">Show All Movies</button>
+            <button onclick="moviesAfterYear(movies, 2010)" class="button">Movies After 2010</button>
+        </div>
+
+        <div class="movie-list" id="movieList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
